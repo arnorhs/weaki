@@ -1,0 +1,25 @@
+{
+  "name": "weaki",
+  "version": "0.0.0",
+  "description": "a wiki of some sorts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arnor Heidar Sigurdsson <arnorhs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "minimatch": "~0.2.12",
+    "file-tree-sync": "0.0.0",
+    "jade": "~0.35.0",
+    "marked": "~0.2.10",
+    "mime": "~1.2.11",
+    "node-index": "0.0.2"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "wiki",
+    "git",
+    "markdown"
+  ]
+}

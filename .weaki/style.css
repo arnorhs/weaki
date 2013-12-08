@@ -1,0 +1,16 @@
+body {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+}
+.width-wrapper {
+    max-width: 1111px;
+    margin: 0 auto;
+    width: 100%;
+}
+code {
+    display: block;
+    background: #eee;
+    padding: 20px;
+    white-space: pre-wrap;
+}
