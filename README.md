@@ -29,5 +29,12 @@ There is also a config.json file where you can set the following options:
 - `inline-types`: define a list of file extensions to inline in the wiki - eg. if you want
   to inline html documents, which are not inlined by default (default ['md', 'markdown'])
 
+### Command line options
+```sh
+Usage: weaki [directory] [options]
+
+Options:
+  --version     Prints out the current version
+
 ### License
 MIT license
