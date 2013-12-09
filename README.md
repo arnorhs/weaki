@@ -6,7 +6,7 @@ A simple file based wiki web server that doubles as a static file server
 - Easy to customize layout and style
 - Doubles as a static file server
 - Inteded to work well as a git-based wiki
-- Built in search (not implemented yet)
+- Built in search
 
 ### Usage
 
@@ -49,7 +49,8 @@ There is also a config.json file where you can set the following options:
 ```
 
 ### Todo
-- Add search
+- Make search indexing happen async
+- Save search index (possibly)
 - Add tests
 - Modularize all the things?
 

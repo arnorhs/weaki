@@ -1,6 +1,6 @@
 {
   "name": "weaki",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A simple file based wiki server that doubles as a static file server",
   "main": "index.js",
   "scripts": {
