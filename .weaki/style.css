@@ -3,6 +3,14 @@ body {
     font-size: 18px;
     line-height: 24px;
 }
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h1.home {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
 h1.home a {
     color: #000;
     text-decoration: none;
@@ -16,18 +24,29 @@ h1.home a:hover {
     width: 100%;
 }
 code {
-    display: block;
     background: #eee;
-    padding: 20px;
     white-space: pre-wrap;
+}
+pre code {
+    display: block;
+    padding: 20px;
 }
 .text-document {
     display: block;
     white-space: pre-wrap;
     font-family: monospace, "courier new", sans-serif;
 }
+
 .breadcrumbs {
-    height: 24px;
+    height: 40px;
+}
+.breadcrumbs a {
+    color: #000;
+    text-decoration: none;
+}
+.breadcrumbs a:hover {
+    color: #555;
+    text-decoration: none;
 }
 .breadcrumbs ul, .breadcrumbs li {
     list-style:none;
@@ -43,11 +62,21 @@ code {
 .breadcrumbs li:after {
     width: 20px;
     text-align: center;
-    content: ">";
+    content: "⇾";
     float: left;
+    color: #888;
     display: block;
 }
 .breadcrumbs li.item0:after {
     display: none;
     content: "";
+}
+
+.directory-listing {
+}
+.directory-listing ul, .directory-listing li {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

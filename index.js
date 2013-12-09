@@ -39,9 +39,10 @@ function generateBreadcrumbs(opts, file) {
 
 function urler(url) {
     var parts = url.split('?');
+    url = unescape(parts[0].replace(/\.\./g, '').substr(1));
     return {
         qs: parts[1] ? querystring.parse(parts[1]) : '',
-        url: parts[0].replace(/\.\./g, '').substr(1)
+        url: url
     };
 }
 
