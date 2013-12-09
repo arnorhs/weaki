@@ -6,7 +6,7 @@
                     config.
     start           Starts the web server with the specified directory (or current
                     directory if none is specified (this is the default command)
-  
+
   Options:
     --version, -v   Prints out the current version
     --help, -h      Prints this help message

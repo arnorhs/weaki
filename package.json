@@ -1,7 +1,7 @@
 {
   "name": "weaki",
-  "version": "0.0.2",
-  "description": "a wiki of some sorts",
+  "version": "0.0.3",
+  "description": "A simple file based wiki server that doubles as a static file server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
