@@ -39,7 +39,6 @@ Options:
 ### Todo
 - Use config.json
 - Implement the init command
-- Add breadcrumbs
 - Add search
 
 ### License
