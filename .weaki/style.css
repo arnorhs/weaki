@@ -1,7 +1,14 @@
 body {
     font-family: helvetica, arial, sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 24px;
+}
+h1.home a {
+    color: #000;
+    text-decoration: none;
+}
+h1.home a:hover {
+    color: #555;
 }
 .width-wrapper {
     max-width: 1111px;
@@ -13,4 +20,34 @@ code {
     background: #eee;
     padding: 20px;
     white-space: pre-wrap;
+}
+.text-document {
+    display: block;
+    white-space: pre-wrap;
+    font-family: monospace, "courier new", sans-serif;
+}
+.breadcrumbs {
+    height: 24px;
+}
+.breadcrumbs ul, .breadcrumbs li {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.breadcrumbs li {
+    float: left;
+    width: auto;
+    line-height: 24px;
+}
+.breadcrumbs li:after {
+    width: 20px;
+    text-align: center;
+    content: ">";
+    float: left;
+    display: block;
+}
+.breadcrumbs li.item0:after {
+    display: none;
+    content: "";
 }

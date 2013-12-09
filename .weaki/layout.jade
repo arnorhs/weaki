@@ -1,11 +1,16 @@
 doctype 5
 head
-  title node git wiki
+  title= title
   link(rel='stylesheet', href='/.weaki/style.css')
 body
   .width-wrapper
-    div
-      h1
-        a(href='/') home
+    .header
+      h1.home
+        a(href='/')= title
+    .breadcrumbs
+      ul
+        - for(var i = 0; i < breadcrumbs.length; i++)
+          li(class='item' + i)
+            a(href=breadcrumbs[i].url)= breadcrumbs[i].title
     div
       block content
