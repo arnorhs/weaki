@@ -1,13 +1,11 @@
 var server = require('./lib/server.js');
-var dirHandler = require('./lib/dir-handler');
-var fileHandler = require('./lib/file-handler');
-var markdownHandler = require('./lib/markdown-handler');
 var path = require('path');
 var respond = require('./lib/respond');
 var fs = require('fs');
 
 var rootDir = process.cwd();
-dirHandler = dirHandler(rootDir);
+
+var handlers = require('./lib/response-handlers/')(rootDir);
 
 function urler(url) {
     var parts = url.split('?');
@@ -42,15 +40,15 @@ server(function(req, res) {
 
         var ext = path.extname(file).substr(1).toLowerCase();
         if (ext === 'md' || ext === 'markdown') {
-            markdownHandler(file, res);
+            handlers.markdown(file, res);
             return;
         }
 
         if (stat.isDirectory()) {
-            dirHandler(file, res);
+            handlers.dir(file, res);
             return;
         }
 
-        fileHandler(file, stat, req, res);
+        handlers.file(file, stat, req, res);
     });
 });
