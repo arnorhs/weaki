@@ -36,5 +36,11 @@ Usage: weaki [directory] [options]
 Options:
   --version     Prints out the current version
 
+### Todo
+- Use config.json
+- Implement the init command
+- Add breadcrumbs
+- Add search
+
 ### License
 MIT license
