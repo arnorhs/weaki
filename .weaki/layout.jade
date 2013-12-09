@@ -3,14 +3,16 @@ head
   title= title
   link(rel='stylesheet', href='/.weaki/style.css')
 body
-  .width-wrapper
-    .header
+  .header
+    .width-wrapper
       h1.home
         a(href='/')= title
-    .breadcrumbs
+  .breadcrumbs
+    .width-wrapper
       ul
         - for(var i = 0; i < breadcrumbs.length; i++)
           li(class='item' + i)
             a(href=breadcrumbs[i].url)= breadcrumbs[i].title
-    div
+  div.content
+    .width-wrapper
       block content

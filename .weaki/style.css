@@ -39,6 +39,8 @@ pre code {
 
 .breadcrumbs {
     height: 40px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
 }
 .breadcrumbs a {
     color: #000;

@@ -19,8 +19,8 @@ if (!module.parent) {
     module.exports();
 }
 
-function generateBreadcrumbs(opts, file) {
-    var relative = path.relative(opts.rootDir, file);
+function generateBreadcrumbs(rootDir, file) {
+    var relative = path.relative(rootDir, file);
     var root = { title: "home", url: "/" };
     if (relative === "") {
         return [root];
@@ -73,12 +73,12 @@ function requestHandler(opts) {
 
             var ext = path.extname(file).substr(1).toLowerCase();
             if (opts.inlineExt.indexOf(ext) !== -1) {
-                h.doc(file, res, ext, generateBreadcrumbs(opts, file));
+                h.doc(file, res, ext, generateBreadcrumbs(opts.rootDir, file));
                 return;
             }
 
             if (stat.isDirectory()) {
-                h.dir(file, res, generateBreadcrumbs(opts, file));
+                h.dir(file, res, generateBreadcrumbs(opts.rootDir, file));
                 return;
             }
 
