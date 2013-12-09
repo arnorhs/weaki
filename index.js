@@ -2,7 +2,7 @@ var http = require('http');
 var path = require('path');
 var respond = require('./lib/respond');
 var fs = require('fs');
-var handlers = require('./lib/response-handlers');
+var h = require('./lib/response-handlers');
 var querystring = require('querystring');
 
 module.exports = function(opts) {
@@ -20,49 +20,31 @@ if (!module.parent) {
     module.exports();
 }
 
-function generateBreadcrumbs(rootDir, file) {
-    var relative = path.relative(rootDir, file);
-    var root = { title: "home", url: "/" };
-    if (relative === "") {
-        return [root];
-    }
-    var paths = relative.split("/");
-    var last = "";
-    var breadcrumbs = paths.map(function(section) {
-        return {
-            title: section || "/",
-            url: (last = last + "/" + section)
-        };
-    });
-    breadcrumbs.unshift(root);
-    return breadcrumbs;
-}
-
-function urler(url) {
-    var parts = url.split('?');
-    url = unescape(parts[0].replace(/\.\./g, '').substr(1));
+function current(req, opts) {
+    var parts = req.url.split('?');
+    var url = unescape(parts[0].replace(/\.\./g, '')).replace(/^\/+/, '');
+    var file = path.resolve(opts.rootDir, url);
     return {
         qs: parts[1] ? querystring.parse(parts[1]) : '',
-        url: url
+        url: url,
+        file: file,
+        opts: opts
     };
 }
 
 function requestHandler(opts) {
-    var h = handlers(opts);
-
     return function(req, res) {
-        var url = urler(req.url);
-        var file = path.resolve(opts.rootDir, url.url);
+        var curr = current(req, opts);
 
-        console.log(req.method + ": " + file);
+        console.log(req.method + ": " + curr.file);
 
-        if (url.url === "weaki-search") {
+        if (curr.url === "weaki-search") {
             res.statusCode = 200;
             res.end('search');
             return;
         }
 
-        fs.stat(file, function(err, stat) {
+        fs.stat(curr.file, function(err, stat) {
             if (err) {
                 if (err && err.code === 'ENOENT') {
                     return respond(404, res);
@@ -71,19 +53,20 @@ function requestHandler(opts) {
                     return respond(500, res);
                 }
             }
+            curr.stat = stat;
 
-            var ext = path.extname(file).substr(1).toLowerCase();
-            if (opts.inlineExt.indexOf(ext) !== -1) {
-                h.doc(file, res, ext, generateBreadcrumbs(opts.rootDir, file));
+            curr.ext = path.extname(curr.file).substr(1).toLowerCase();
+            if (opts.inlineExt.indexOf(curr.ext) !== -1) {
+                h.doc(res, curr);
                 return;
             }
 
             if (stat.isDirectory()) {
-                h.dir(file, res, generateBreadcrumbs(opts.rootDir, file));
+                h.dir(res, curr);
                 return;
             }
 
-            h.file(file, stat, req, res);
+            h.file(req, res, curr);
         });
     };
 }
