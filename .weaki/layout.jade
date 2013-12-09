@@ -11,7 +11,7 @@ body
         form(method='get', action='/weaki-search')
           input(type='text', id='search-query', placeholder='search...', name='q', value=query ? query : '')
           - if (query)
-            script(type='text/javascript')
+            script(type='text/javascript').
               document.getElementById('search-query').focus();
   .breadcrumbs
     .width-wrapper
