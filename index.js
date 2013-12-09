@@ -1,4 +1,4 @@
-var server = require('./lib/server.js');
+var http = require('http');
 var path = require('path');
 var respond = require('./lib/respond');
 var fs = require('fs');
@@ -7,11 +7,12 @@ var querystring = require('querystring');
 
 module.exports = function(opts) {
     // XXX Add xtend or something to do this
-    opts = opts || {};
-    opts.rootDir = opts.rootDir || process.cwd();
-    opts.inlineExt = opts.inlineExt || ['md', 'markdown', 'txt'];
-    opts.title = opts.title || "weaki";
-    server(requestHandler(opts));
+    if (!opts) {
+        throw new Error("Options are not optional for starting weaki");
+    }
+
+    http.createServer(requestHandler(opts)).listen(opts.port);
+    console.log('Started server on port ' + opts.port + ' in directory ' + opts.rootDir);
 };
 
 // if node index.js was called, start inline with no options

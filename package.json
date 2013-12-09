@@ -15,7 +15,8 @@
     "marked": "~0.2.10",
     "mime": "~1.2.11",
     "node-index": "0.0.2",
-    "optimist": "~0.6.0"
+    "optimist": "~0.6.0",
+    "directory-copy": "0.0.4"
   },
   "devDependencies": {},
   "keywords": [
