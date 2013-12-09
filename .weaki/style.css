@@ -7,8 +7,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.header .width-wrapper {
+    margin-top: 20px;
+    padding-top: 20px;
+}
 h1.home {
-    margin-top: 40px;
+    margin-top: 0px;
     margin-bottom: 20px;
 }
 h1.home a {
@@ -22,6 +26,7 @@ h1.home a:hover {
     max-width: 1111px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
 }
 code {
     background: #eee;
@@ -74,11 +79,26 @@ pre code {
     content: "";
 }
 
-.directory-listing {
-}
-.directory-listing ul, .directory-listing li {
+.directory-listing ul, .directory-listing li, .search-results ul, .search-results li {
     display: block;
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.search-box {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+}
+.search-box input {
+    font-size: 18px;
+    line-height: 24px;
+    width: 144px;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+}
+.search-results .in {
+    color: #aaa;
+    font-size: 15px;
 }

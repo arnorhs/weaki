@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .search-results
+    h3= "Searching for '" + query + "'"
+    ul
+      each item in results
+        li
+          a(href=item.url)= item.name
+          .in= 'in ' + item.dir
+
