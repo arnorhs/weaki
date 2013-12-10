@@ -10,13 +10,13 @@
   "license": "MIT",
   "dependencies": {
     "minimatch": "~0.2.12",
-    "file-tree-sync": "0.0.0",
     "jade": "~0.35.0",
     "marked": "~0.2.10",
     "mime": "~1.2.11",
     "node-index": "0.0.2",
     "optimist": "~0.6.0",
-    "directory-copy": "0.0.4"
+    "directory-copy": "0.0.4",
+    "glob": "~3.2.7"
   },
   "devDependencies": {},
   "keywords": [
