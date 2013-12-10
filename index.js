@@ -4,7 +4,7 @@ var respond = require('./lib/respond');
 var fs = require('fs');
 var h = require('./lib/response-handlers');
 var querystring = require('querystring');
-var indexer = require('./lib/search/');
+var searchIndex = require('./lib/search/');
 
 module.exports = function(opts) {
     // XXX Add xtend or something to do this
@@ -12,9 +12,9 @@ module.exports = function(opts) {
         throw new Error("Options are not optional for starting weaki");
     }
 
-    var searchIndex = indexer(opts);
+    searchIndex.startIndexing(opts);
 
-    http.createServer(requestHandler(opts, searchIndex)).listen(opts.port);
+    http.createServer(requestHandler(opts)).listen(opts.port);
     console.log('Started server on port ' + opts.port + ' in directory ' + opts.rootDir);
 };
 
@@ -35,14 +35,14 @@ function current(req, opts) {
     };
 }
 
-function requestHandler(opts, searchIndex) {
+function requestHandler(opts) {
     return function(req, res) {
         var curr = current(req, opts);
 
         console.log(req.method + ": " + curr.file);
 
         if (curr.url === "weaki-search") {
-            h.search(res, curr, searchIndex);
+            h.search(res, curr);
             return;
         }
 
