@@ -1,8 +1,11 @@
 {
   "name": "weaki",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple file based wiki server that doubles as a static file server",
   "main": "index.js",
+  "bin": {
+    "weaki": "./bin/weaki"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
