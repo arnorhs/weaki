@@ -48,6 +48,8 @@ There is also a config.json file where you can set the following options:
     --dir <dir>     Sets the directory to use (defaults to current working directory)
 ```
 
+Pull requests welcome
+
 ### Todo
 - Make search indexing happen async
 - Save search index (possibly)
