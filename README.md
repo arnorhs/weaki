@@ -68,6 +68,8 @@ Pull requests welcome
 - being able to overwrite anything with a config, including where
   everything is located etc
 - Colored console output
+- Echoing out the served address (Possibly also opening?)
+- Watching for file changes
 
 ### License
 
