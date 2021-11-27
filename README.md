@@ -70,6 +70,7 @@ Pull requests welcome
 - Colored console output
 - Echoing out the served address (Possibly also opening?)
 - Watching for file changes
+- Replace jade with pug or something
 
 ### License
 

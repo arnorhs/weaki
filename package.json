@@ -64,6 +64,7 @@
   },
   "homepage": "https://github.com/arnorhs/weaki",
   "resolutions": {
-    "minimatch": "^3.0.2"
+    "minimatch": "^3.0.2",
+    "constantinople": "^3.1.1"
   }
 }
