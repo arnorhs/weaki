@@ -66,6 +66,7 @@
   "resolutions": {
     "minimatch": "^3.0.2",
     "constantinople": "^3.1.1",
-    "uglify-js": "^2.6.0"
+    "uglify-js": "^2.6.0",
+    "clean-css": "^4.1.11"
   }
 }
