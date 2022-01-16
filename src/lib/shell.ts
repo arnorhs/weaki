@@ -61,11 +61,6 @@ export const shell = () => {
 
         fs.mkdirSync(config.path)
 
-        console.log({
-          src: path.resolve(sourceRoot, './.weaki'),
-          dest: config.path,
-        })
-
         dirCopy(
           {
             src: path.resolve(sourceRoot, './.weaki'),

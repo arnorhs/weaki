@@ -1,12 +1,13 @@
 {
   "name": "weaki",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    ".weaki"
   ],
   "scripts": {
     "build": "rollup -c",
